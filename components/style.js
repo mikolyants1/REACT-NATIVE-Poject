@@ -1,0 +1,186 @@
+import styled from 'styled-components/native'
+import {StyleSheet} from 'react-native'
+export const Load=styled.View`
+ width:100%;
+ text-align:center
+`
+export const Input=styled.TextInput`
+width:90%;
+margin:auto;
+text-align:center;
+font-size:20px;
+`
+export const Item=styled.View`
+width:90%;
+height:170px;
+border:1px solid black;
+margin:20px auto;
+background-color:white;
+border-radius:10px;
+`
+export const Main=styled.View`
+width:95%;
+height:630px;
+margin:auto;
+border:1px solid black;
+border-radius:20px;
+overflow:hidden;
+`
+export const styles = StyleSheet.create({
+    container: {
+      padding:'10px',
+      flex: 1,
+      backgroundColor: 'rgb(235,235,235)',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    scroll:{
+      width:'100%',
+      height:'100%'
+    },
+    name:{
+      textAlign:'center',
+    },
+    section:{
+      color:'grey',
+      fontWeight:'bold'
+    },
+    title:{
+      textAlign:'center',
+      fontSize:34,
+      color:'white',
+      fontWeight:'bold',
+      marginTop:20
+    },
+    serTitle:{
+      textAlign:'center',
+      fontSize:28,
+      color:'black',
+      fontWeight:'bold',
+      marginTop:20
+    },
+    flat:{
+      width:'100px'
+    },
+    image:{
+      width:'100%',
+      height:'100%',
+    },
+    block:{
+      marginBottom:10
+    },
+    week:{
+      marginTop:10,
+      width:120
+    },
+    main:{
+      fontSize:22,
+      fontWeight:'bold',
+      textAlign:'center',
+      color:'white',
+      marginTop:7,
+    },
+    serMain:{
+      fontSize:22,
+      fontWeight:'bold',
+      textAlign:'center',
+      color:'black'
+    },
+    date:{
+      fontSize:20,
+      fontWeight:'bold',
+      textAlign:'center',
+      color:'white'
+    },
+    deg:{
+      fontSize:17,
+      fontWeight:'bold',
+      textAlign:'center',
+      color:'white'
+    },
+    but:{
+     width:60,
+    borderRadius:'50%',
+     height:60,
+     borderColor:'black',
+     borderStyle:'solid',
+     borderWidth:1,
+     backgroundColor:`rgb(230,230,230)`,
+     opacity:0.5
+    },
+    text:{
+      textAlign:'center',
+      marginTop:17,
+     color:'black',
+     fontSize:17
+    },
+    buttons:{
+      width:'100%',
+      display:'flex',
+      flexDirection:'row',
+      justifyContent:'space-between'
+    },
+    link:{
+      width:'100%',
+      marginBottom:45
+    },
+    forTitle:{
+      fontSize:27,
+      textAlign:'center',
+      fontWeight:'bold'
+    },
+    forBlock:{
+      width:'100%',
+      marginTop:10,
+    },
+    pers:{
+      marginTop:20
+    },
+    subTitle:{
+      fontSize:26,
+      textAlign:'center',
+      fontWeight:'bold'
+    },
+    data:{
+      width:200,
+      height:340,
+      backgroundColor:'white',
+      borderColor:'black',
+      borderWidth:2,
+      borderRadius:20,
+      marginLeft:10,
+      marginRight:10
+    },
+    weather:{
+      textAlign:'center',
+      fontSize:22
+    },
+    feels:{
+      fontSize:20,
+      textAlign:'center',
+      fontWeight:'bold'
+    },
+    days:{
+      fontSize:18,
+      textAlign:'center'
+    },
+    search:{
+      fontSize:18,
+      textAlign:'center',
+    },
+    serBlock:{
+      borderColor:'grey',
+      borderRadius:8,
+      borderWidth:1,
+      width:60,
+      marginTop:10,
+      marginLeft:"auto",
+      marginRight:'auto',
+      opacity:0.5
+    },
+    forPlace:{
+      textAlign:'center',
+      fontSize:30,
+      fontWeight:'bold'
+    }
+})
