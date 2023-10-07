@@ -1,4 +1,4 @@
-import {View,Button,Text,StyleSheet,SafeAreaView,ScrollView,FlatList, TouchableOpacity, Alert} from 'react-native'
+import {View,Button,Text,SafeAreaView,ScrollView,TouchableOpacity, Alert} from 'react-native'
 import {useSelector} from 'react-redux'
 import { styles } from './style';
 import Town from './List';
@@ -9,7 +9,7 @@ export default function Home({navigation:nav}){
  const [count,setCount]=useState(0)
  const {del}=useAction()
  const delItem=()=>{
-  del(cities[count])
+  del(count)
   setCount(0)
  }
  return (
@@ -22,19 +22,28 @@ export default function Home({navigation:nav}){
          <View>
           <Town id={cities[count]} nav={nav}>
             <Prev 
-              step={count!==0}
-              set={setCount}
+             step={count!==0}
+             set={setCount}
               />
             <Next
-              step={count!==cities.length-1}
-              set={setCount}
+             step={count!==cities.length-1}
+             set={setCount}
               />
+            <Button
+             title='delete City'
+             onPress={delItem}
+             />
           </Town>
         </View>
-        <Button
-         title='delete City'
-         onPress={delItem}
-         />
+        <View style={styles.points}>
+         {cities.map((_,i)=>(
+           <Point
+            key={i}
+            id={i}
+            con={count}
+           />
+         ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
     )
@@ -42,7 +51,8 @@ export default function Home({navigation:nav}){
 function Prev({step,set}){ 
  const add=()=>{
   set(prev=>step?prev-1:prev)
-  if (!step) Alert.alert('Warning','It is the first city')
+  if (!step) 
+  Alert.alert('Warning','It is the first city')
     }
   return (
   <View style={styles.but}>
@@ -58,15 +68,26 @@ function Prev({step,set}){
 function Next({step,set}){
  const add=()=>{
   set(prev=>step?prev+1:prev)
-  if (!step) Alert.alert('Warning','It is the last city')
+  if (!step) 
+  Alert.alert('Warning','It is the last city')
   }
   return (
   <View style={styles.but}>
     <TouchableOpacity onPress={add}>
       <Text style={styles.text}>
-         Next
+          Next
       </Text>
     </TouchableOpacity>
   </View>
-  )
+    )
+  }
+function Point({id,con}){
+  const name=id==con?'active':'pend'
+    return (
+      <View style={styles.point}>
+        <Text style={styles[name]}>
+            ·
+        </Text>
+      </View>
+    )
   }

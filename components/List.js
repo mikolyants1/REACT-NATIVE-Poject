@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {View,Text,FlatList,ImageBackground,TouchableOpacity} from 'react-native'
-import { BaseUrl,key } from '../store/api'
+import { BaseUrl,fon2,key, } from '../store/api'
 import { useState,useEffect, useMemo } from 'react';
 import { Load ,styles,Main} from './style';
 import { back } from '../store/api';
@@ -23,8 +23,8 @@ export default function Town({id,nav,children}){
     }
      Call()
     return ()=>{
-    cancelTaken.cancel()
-       }
+     cancelTaken.cancel()
+      }
     },[id])
     const Link=(item)=>{
      nav.navigate('Forecast',{name:item})
@@ -151,6 +151,7 @@ export default function Town({id,nav,children}){
                </Text>
              </TouchableOpacity>
            </View>
+           {children[2]}
          </ImageBackground>
        </Main>
     )
@@ -178,5 +179,5 @@ export default function Town({id,nav,children}){
          </Text>
        </View>
      </View>
- )
-    }
+     )
+   }

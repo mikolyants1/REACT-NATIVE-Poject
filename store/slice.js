@@ -19,8 +19,7 @@ const slice=createSlice({
         },
         del:(state,action)=>{
         if (state.city.length>1){
-         const id=state.city.findIndex(x=>x==action.payload)
-          state.city.splice(id,1)
+          state.city.splice(action.payload,1)
             }
         }
     }

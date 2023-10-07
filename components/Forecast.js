@@ -22,7 +22,7 @@ export default function Forecast({navigation,route}){
         <View>
           <View style={styles.forBlock}>
             <Text style={styles.forPlace}>
-                {route.params.name}
+               {route.params.name}
             </Text>
           </View>
           <View style={styles.forBlock}>
@@ -61,20 +61,20 @@ function Date({item,i}){
             </Text>
           </View>
           <View>
-              <Text style={styles.weather}>
-                {item.weather[0].description}
-              </Text>
+            <Text style={styles.weather}>
+              {item.weather[0].description}
+            </Text>
           </View>
           <View>
-              <Text style={styles.weather}>
-                speed:
-                  <Text style={styles.section}>
-                    {item.speed}
-                </Text>
+            <Text style={styles.weather}>
+              speed:
+              <Text style={styles.section}>
+                 {item.speed}
               </Text>
+            </Text>
           </View>
           <View>
-            {arrItem.map(({date,name},i)=>(
+           {arrItem.map(({date,name},i)=>(
               <Temptation
                key={i}
                date={date}

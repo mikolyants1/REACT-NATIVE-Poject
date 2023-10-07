@@ -13,7 +13,7 @@ export const back=[
 export const CityApi=createApi({
     reducerPath:'Cities',
     baseQuery:fetchBaseQuery({
-        baseUrl:`${BaseUrl}/forecast/daily`
+      baseUrl:`${BaseUrl}/forecast/daily`
     }),
     endpoints:(build)=>({
      getCity:build.query({
@@ -22,5 +22,5 @@ export const CityApi=createApi({
           })
        })
     })
-})
+  })
 export const {useGetCityQuery}=CityApi

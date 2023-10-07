@@ -26,6 +26,7 @@ border:1px solid black;
 border-radius:20px;
 overflow:hidden;
 `
+
 export const styles = StyleSheet.create({
     container: {
       padding:'10px',
@@ -133,6 +134,11 @@ export const styles = StyleSheet.create({
       width:'100%',
       marginTop:10,
     },
+    forPlace:{
+      textAlign:'center',
+      fontSize:32,
+      fontWeight:'bold'
+    },
     pers:{
       marginTop:20
     },
@@ -150,6 +156,27 @@ export const styles = StyleSheet.create({
       borderRadius:20,
       marginLeft:10,
       marginRight:10
+    },
+    points:{
+      display:'flex',
+      flexDirection:'row',
+      width:'100%',
+      justifyContent:'center'
+    },
+    point:{
+     width:30
+    },
+    active:{
+      color:'blue',
+      fontWeight:'bold',
+      fontSize:37,
+      textAlign:'center'
+    },
+    pend:{
+      color:'black',
+      fontWeight:'bold',
+      fontSize:37,
+      textAlign:'center'
     },
     weather:{
       textAlign:'center',
@@ -178,7 +205,7 @@ export const styles = StyleSheet.create({
       marginRight:'auto',
       opacity:0.5
     },
-    forPlace:{
+    forName:{
       textAlign:'center',
       fontSize:30,
       fontWeight:'bold'

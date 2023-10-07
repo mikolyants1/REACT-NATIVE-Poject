@@ -11,7 +11,7 @@ return (
         <>
          <View style={styles.pers}>
            <Town nav={navigation} id={route.params.id}>
-              {[0,1].map(i=><View key={i} />)}
+              {[0,1,2].map(i=><View key={i} />)}
            </Town>
          </View>
          <Button
