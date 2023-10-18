@@ -1,7 +1,7 @@
 import { View ,Text, FlatList} from "react-native";
 import { useGetCityQuery } from "../store/api";
 import { Load,styles } from "./style";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 export default function Forecast({navigation,route}){
  const {data,isError,isLoading}=useGetCityQuery(route.params.name)
   return (
@@ -86,12 +86,13 @@ function Date({item,i}){
     )
 }
 function Temptation({date,name}){
-const [state,setState]=useState({morn:"",day:"",eve:"",night:""})
 const Day=['morn','day','eve','night']
+const [state,dispatch]=useReducer(
+(prev,next)=>({...prev,...next}),
+{morn:"",day:"",eve:"",night:""})
 useEffect(()=>{
-[...Object.entries(date)].forEach(item=>{
-setState(prev=>({...prev,[item[0]]:item[1]}))
- })
+[...Object.entries(date)]
+.forEach(item=>dispatch({[item[0]]:item[1]}))
 },[])
 return (
     <>

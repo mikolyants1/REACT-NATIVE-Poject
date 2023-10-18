@@ -20,19 +20,19 @@ export default function Home({navigation:nav}){
           onPress={()=>nav.navigate('Search')} 
          />
          <View>
-          <Town id={cities[count]} nav={nav}>
-            <Prev 
-             step={count!==0}
-             set={setCount}
+           <Town id={cities[count]} nav={nav}>
+             <Prev 
+              step={count!==0}
+              set={setCount}
+               />
+             <Next
+              step={count!==cities.length-1}
+              set={setCount}
+               />
+             <Button
+              title='delete City'
+              onPress={delItem}
               />
-            <Next
-             step={count!==cities.length-1}
-             set={setCount}
-              />
-            <Button
-             title='delete City'
-             onPress={delItem}
-             />
           </Town>
         </View>
         <View style={styles.points}>

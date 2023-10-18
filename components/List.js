@@ -1,10 +1,14 @@
 import axios from 'axios'
 import {View,Text,FlatList,ImageBackground,TouchableOpacity} from 'react-native'
-import { BaseUrl,fon2,key, } from '../store/api'
+import { BaseUrl,key } from '../store/api'
 import { useState,useEffect, useMemo } from 'react';
 import { Load ,styles,Main} from './style';
 import { back } from '../store/api';
 export default function Town({id,nav,children}){
+    const urls=[
+      `${BaseUrl}/weather?q=${id}&appid=${key}&units=imperial`,
+      `${BaseUrl}/forecast/daily?q=${id}&appid=${key}&units=imperial`
+    ]
     const [state,setState]=useState({day:null,week:null})
     const [err,setErr]=useState(false)
     const Back=useMemo(()=>{
@@ -15,11 +19,9 @@ export default function Town({id,nav,children}){
     useEffect(()=>{
     const cancelTaken=axios.CancelToken.source()
     async function Call(){
-     return await Promise.allSettled([
-      axios.get(`${BaseUrl}/weather?q=${id}&appid=${key}&units=imperial`),
-      axios.get(`${BaseUrl}/forecast/daily?q=${id}&appid=${key}&units=imperial`)
-       ]).then(res=>setState({day:res[0].value.data,week:res[1].value.data}))
-       .catch(()=>setErr(true))
+     return await Promise.allSettled(urls.map(item=>axios.get(item)))
+     .then(res=>setState({day:res[0].value.data,week:res[1].value.data}))
+     .catch(()=>setErr(true))
     }
      Call()
     return ()=>{
@@ -145,7 +147,7 @@ export default function Town({id,nav,children}){
               />
             <View>
               <TouchableOpacity style={styles.link}
-               onPress={()=>Link(day.name)}>
+                onPress={()=>Link(day.name)}>
                <Text style={styles.main}>
                    Detail forecast
                </Text>
