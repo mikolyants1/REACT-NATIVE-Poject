@@ -41,7 +41,7 @@ if (item){
           <Button 
            title='more' 
            onPress={Navigate}
-            />  
+           />  
         </Item>
       )  
     }

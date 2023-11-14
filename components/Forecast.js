@@ -1,18 +1,25 @@
 import { View ,Text, FlatList} from "react-native";
-import { useGetCityQuery } from "../store/api";
 import { Load,styles } from "./style";
 import { useEffect, useReducer } from "react";
+import {useSelector,useDispatch} from 'react-redux'
+import { getCity } from "../store/slice";
+
 export default function Forecast({navigation,route}){
- const {data,isError,isLoading}=useGetCityQuery(route.params.name)
+  const data = useSelector((store)=>store.set.date)
+  const status = useSelector((store)=>store.set.status)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getCity(route.params.name))
+   },[])
   return (
       <>
-       {isLoading?(
+       {status=='pend'?(
         <Load>
           <Text>
               load...
           </Text>
         </Load>
-       ):isError?(
+       ):status=='err'?(
         <Load>
           <Text>
               err...
@@ -41,7 +48,7 @@ export default function Forecast({navigation,route}){
                 />
               )}
               horizontal
-            />
+             />
           </View>
         </View>
        )}
@@ -79,7 +86,7 @@ function Date({item,i}){
                key={i}
                date={date}
                name={name}
-                />
+              />
              ))}
           </View>
         </View>
@@ -92,13 +99,13 @@ const [state,dispatch]=useReducer(
 {morn:"",day:"",eve:"",night:""})
 useEffect(()=>{
 [...Object.entries(date)]
-.forEach(item=>dispatch({[item[0]]:item[1]}))
+.forEach(i=>dispatch({[i[0]]:i[1]}))
 },[])
 return (
     <>
       <View>
         <Text style={styles.feels}>
-            {name}
+           {name}
         </Text>
       </View>
        {Day.map((item,i)=>(

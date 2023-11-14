@@ -28,8 +28,8 @@ export default function Town({id,nav,children}){
      cancelTaken.cancel()
       }
     },[id])
-    const Link=(item)=>{
-     nav.navigate('Forecast',{name:item})
+    const Link=(i)=>{
+     nav.navigate('Forecast',{name:i})
     }
     const {day,week}=state
     if (!day||!week) return <Load><Text>load..</Text></Load>

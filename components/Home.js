@@ -12,10 +12,11 @@ export default function Home({navigation:nav}){
   del(count)
   setCount(0)
  }
+ 
  return (
      <SafeAreaView style={styles.container}>
        <ScrollView style={styles.scroll}>
-        <Button 
+         <Button 
           title='find the City' 
           onPress={()=>nav.navigate('Search')} 
          />
@@ -33,19 +34,19 @@ export default function Home({navigation:nav}){
               title='delete City'
               onPress={delItem}
               />
-          </Town>
-        </View>
-        <View style={styles.points}>
-         {cities.map((_,i)=>(
-           <Point
-            key={i}
-            id={i}
-            con={count}
-           />
-         ))}
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+           </Town>
+         </View>
+         <View style={styles.points}>
+           {cities.map((_,i)=>(
+             <Point
+              key={i}
+              id={i}
+              con={count}
+              />
+            ))}
+         </View>
+       </ScrollView>
+     </SafeAreaView>
     )
 }
 function Prev({step,set}){ 

@@ -8,7 +8,8 @@ export default function Search({navigation}){
  const [city,setCity]=useState('')
  const [json,setJson]=useState(null)
 async function show(id){
-return await axios.get(`${BaseUrl}/weather?q=${id}&appid=${key}&units=imperial`)
+return await axios
+.get(`${BaseUrl}/weather?q=${id}&appid=${key}&units=imperial`)
 .then(({data})=>setJson(data))
  }
 const press=()=>{
